@@ -1,4 +1,4 @@
-Absolutely! Here's a comprehensive **README** you can use for your SonarQube + sample app + Jenkins + Kubernetes setup, including all the troubleshooting and setup notes. I’ve structured it for clarity so you can refer to it anytime.
+
 
 ---
 
