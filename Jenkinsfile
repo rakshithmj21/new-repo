@@ -16,8 +16,13 @@ pipeline {
     stage('Maven Build & SonarQube Analysis') {
       steps {
         dir('app') {
-          withSonarQubeEnv('sonarqube-token') {
-            sh 'mvn clean verify sonar:sonar'
+          withSonarQubeEnv('MySonarQube') {   // <-- this is the SonarQube server name from Jenkins config
+            withCredentials([string(credentialsId: 'sonarqube-token', variable: 'SONAR_TOKEN')]) {
+              sh """
+                mvn clean verify sonar:sonar \
+                  -Dsonar.login=$SONAR_TOKEN
+              """
+            }
           }
         }
       }
@@ -64,7 +69,12 @@ pipeline {
   post {
     always {
       script {
-        sh 'docker logout || true'
+        // Logout Docker only if login was used
+        try {
+          sh 'docker logout'
+        } catch (Exception e) {
+          echo "Docker logout skipped."
+        }
       }
     }
   }
