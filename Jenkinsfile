@@ -90,15 +90,14 @@ pipeline {
 
   environment {
     DOCKER_IMAGE = "arjunpdas/hello-world"
-    DOCKER_TAG = "${env.BRANCH_NAME}-${env.BUILD_NUMBER}"   // unique tag per build
+    DOCKER_TAG = "latest"   // unique tag per build
     SONAR_TOKEN = credentials('sonarqube-token')                // SonarQube token credential
   }
 
   stages {
     stage('Checkout') {
       steps {
-        git branch: env.BRANCH_NAME,
-            url: 'https://github.com/arjunpdas/k8s-sonarqube-demo.git'
+        checkout scm
       }
     }
 
