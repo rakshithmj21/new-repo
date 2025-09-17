@@ -2,7 +2,7 @@
 FROM openjdk:17-jdk-slim
 
 # Copy built jar from Maven target folder
-COPY target/*-shaded.jar app.jar
+COPY target/*.jar app.jar
 
 # Run the jar
 ENTRYPOINT ["java", "-jar", "/app.jar"]
