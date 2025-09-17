@@ -91,7 +91,7 @@ pipeline {
   environment {
     DOCKER_IMAGE = "arjunpdas/hello-world"
     DOCKER_TAG = "latest"   // unique tag per build
-    SONAR_TOKEN = credentials('sonarqube-token')                // SonarQube token credential
+    //SONAR_TOKEN = credentials('sonarqube-token')                // SonarQube token credential
   }
 
   stages {
@@ -101,7 +101,7 @@ pipeline {
       }
     }
 
-    stage('SonarQube Analysis') {
+    /*stage('SonarQube Analysis') {
       steps {
         dir('app') {
           withSonarQubeEnv('MySonarQube') {
@@ -111,6 +111,22 @@ pipeline {
               -Dsonar.projectKey=hello-world \
               -Dsonar.login=$SONAR_TOKEN
             '''
+          }
+        }
+      }
+    }*/
+
+    
+    stage('Maven Build & SonarQube Analysis') {
+      steps {
+        dir('app') {
+          withSonarQubeEnv('MySonarQube') {   // <-- this is the SonarQube server name from Jenkins config
+            withCredentials([string(credentialsId: 'sonarqube-token', variable: 'SONAR_TOKEN')]) {
+              sh """
+                mvn clean package sonar:sonar \
+                  -Dsonar.login=$SONAR_TOKEN
+              """
+            }
           }
         }
       }
