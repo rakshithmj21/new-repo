@@ -91,7 +91,7 @@ pipeline {
   environment {
     DOCKER_IMAGE = "arjunpdas/hello-world"
     DOCKER_TAG = "${env.BRANCH_NAME}-${env.BUILD_NUMBER}"   // unique tag per build
-    SONAR_TOKEN = credentials('sonar-token')                // SonarQube token credential
+    SONAR_TOKEN = credentials('sonarqube-token')                // SonarQube token credential
   }
 
   stages {
