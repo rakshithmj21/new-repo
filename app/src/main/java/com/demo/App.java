@@ -7,8 +7,10 @@ public class App {
         try {
             Thread.sleep(600000); // sleeps for 10 minutes
         } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+    LOGGER.log(Level.WARN, "Interrupted!", e);
+    // Restore interrupted state...
+    Thread.currentThread().interrupt();
+      }
     }
 }
 
