@@ -7,7 +7,7 @@
   <artifactId>hello-world</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
-  <name>Hello World App</name>
+  <name>Hello World Appplicaton</name>
 
   <properties>
     <maven.compiler.source>11</maven.compiler.source>
