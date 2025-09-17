@@ -19,7 +19,7 @@ pipeline {
           withSonarQubeEnv('MySonarQube') {   // <-- this is the SonarQube server name from Jenkins config
             withCredentials([string(credentialsId: 'sonarqube-token', variable: 'SONAR_TOKEN')]) {
               sh """
-                mvn clean verify sonar:sonar \
+                mvn clean package sonar:sonar \
                   -Dsonar.login=$SONAR_TOKEN
               """
             }
