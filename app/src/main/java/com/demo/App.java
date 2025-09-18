@@ -7,8 +7,8 @@ public class App {
         try {
             Thread.sleep(600000); // sleeps for 10 minutes
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            System.out.println("Interrupted: " + e.getMessage());
+            Thread.currentThread().interrupt();
         }
     }
 }
-
