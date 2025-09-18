@@ -12,16 +12,6 @@ This repository demonstrates a **complete CI/CD setup**:
 
 ---
 
-## Architecture
-
-flowchart LR
-    Dev[Developer pushes code] --> GitHub[(GitHub Repo)]
-    GitHub --> Jenkins[Jenkins Pipeline]
-    Jenkins -->|Static Code Analysis| SonarQube[(SonarQube in K8s)]
-    Jenkins -->|Deploys to| K8s[(Kubernetes Cluster)]
-    K8s --> App[Hello World App Service]
-
-
 ## 📂 Project Structure
 
 ```
