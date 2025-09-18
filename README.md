@@ -1,4 +1,4 @@
----
+
 
 # 🚀 CI/CD Pipeline: Java + Jenkins + SonarQube + Docker + Kubernetes
 
@@ -9,8 +9,6 @@ This repository demonstrates a **complete CI/CD setup**:
 3. Build & push a **Docker image** to DockerHub
 4. Deploy to **Kubernetes** via Jenkins
 5. Verify the deployment
-
----
 
 ## 📂 Project Structure
 
