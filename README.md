@@ -19,7 +19,7 @@ flowchart LR
     Jenkins -->|Static Code Analysis| SonarQube[(SonarQube in K8s)]
     Jenkins -->|Deploys to| K8s[(Kubernetes Cluster)]
     K8s --> App[Hello World App Service]
-
+```
 
 ## 📂 Project Structure
 
