@@ -3,8 +3,7 @@
 
   environment {
 HEAD
-    DOCKER_IMAGE = "rakshithmj21/hello-world
-    DOCKER_IMAGE = "arjunpdas/hello-world"
+    DOCKER_IMAGE = "rakshithmj21/hello-world"
  09ccbe1a15013ee7aada8bf47fab0604883fe1d3
     DOCKER_TAG = "latest"
   }
